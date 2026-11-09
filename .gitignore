@@ -1,0 +1,6 @@
+# Ignore Python bytecode caching folders
+**/__pycache__/
+*.py[cod]
+
+# Ignore JetBrains / IntelliJ IDEA project settings
+.idea/
