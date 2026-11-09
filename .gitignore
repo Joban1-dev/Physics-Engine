@@ -4,3 +4,5 @@
 
 # Ignore JetBrains / IntelliJ IDEA project settings
 .idea/
+
+.gitignore/
