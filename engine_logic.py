@@ -1,4 +1,5 @@
 import pygame as pg
+import random
 
 class PhysicsObject:
     def __init__(self,velocity,position,radius,mass,screen):
@@ -35,11 +36,20 @@ class PhysicsObject:
             ball.velocity -= impulse/ball.mass * normal
 
 class PhysicsWorld:
-    def __init__(self):
+    def __init__(self,screen):
         self.particles = list()
+        self.screen = screen
+        self.screen_width = screen.get_width()
+        self.screen_height = screen.get_height()
 
-    def add_object(self,particle):
-        self.particles.append(particle)
+    def add_object(self,amount):
+        for i in range(0, amount + 1):
+            radius = random.uniform(5, 10)
+            particle = PhysicsObject(pg.Vector2(random.uniform(-10, 10), random.uniform(-10, 10)),
+                                 pg.Vector2(random.uniform(0, self.screen_width), random.uniform(0, self.screen_height)),
+                                 radius, radius * 1.5, self.screen)
+
+            self.particles.append(particle)
 
     def update(self):
         for particle in self.particles:

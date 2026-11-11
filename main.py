@@ -7,15 +7,8 @@ WIDTH = 800
 HEIGHT = 600
 screen = pg.display.set_mode((WIDTH,HEIGHT))
 clock = pg.Clock()
-environment = PhysicsWorld()
-
-for i in range(0,11):
-    radius = random.uniform(5,10)
-    ball = PhysicsObject(pg.Vector2(random.uniform(-10,10),random.uniform(-10,10)),
-                         pg.Vector2(random.uniform(0,WIDTH),random.uniform(0,HEIGHT)),
-                         radius,radius*1.5,screen)
-
-    environment.add_object(ball)
+environment = PhysicsWorld(screen)
+environment.add_object(10)
 
 while True:
     for event in pg.event.get():
