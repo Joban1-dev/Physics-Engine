@@ -8,7 +8,8 @@ HEIGHT = 600
 screen = pg.display.set_mode((WIDTH,HEIGHT))
 clock = pg.Clock()
 environment = PhysicsWorld(screen)
-environment.add_object(10)
+frame_rate = 60
+environment.add_object(100)
 
 while True:
     for event in pg.event.get():
@@ -20,10 +21,12 @@ while True:
             if event.key == pg.K_ESCAPE:
                 pg.quit()
                 exit()
+            if event.key == pg.K_RETURN:
+                environment.add_object(1)
 
     screen.fill((0,0,0))
 
     environment.update()
 
     pg.display.flip()
-    clock.tick(60)
+    clock.tick(frame_rate)
