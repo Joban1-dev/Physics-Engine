@@ -7,19 +7,17 @@ class PhysicsObject:
         self.radius = radius
         self.mass = mass
         self.screen = screen
+        self.width = screen.get_width()
+        self.height = screen.get_height()
 
     def draw(self):
         pg.draw.circle(self.screen, (255, 255, 255), self.position, self.radius)
 
     def update(self):
-        if self.position.x - self.radius <= 0:
-            self.velocity.x *= -1
-        if self.position.x + self.radius >= self.screen.get_width():
+        if (self.position.x - self.radius <= 0) or (self.position.x + self.radius >= self.width):
             self.velocity.x *= -1
 
-        if self.position.y  - self.radius <= 0:
-            self.velocity.y *= -1
-        if self.position.y + self.radius >= self.screen.get_height():
+        if (self.position.y  - self.radius <= 0) or (self.position.y + self.radius >= self.height):
             self.velocity.y *= -1
 
         self.position += self.velocity
