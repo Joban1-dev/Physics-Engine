@@ -44,13 +44,13 @@ class PhysicsWorld:
         self.particles.append(particle)
 
     def update(self):
-        for particle in range(len(self.particles)):
-            self.particles[particle].update()
+        for particle in self.particles:
+            particle.update()
 
         for particle in range(len(self.particles)):
             for i in range(particle + 1,len(self.particles)):
                 if self.particles[particle].radius + self.particles[i].radius >= self.particles[particle].position.distance_to(self.particles[i].position):
                     self.particles[particle].collide(self.particles[i])
 
-        for particle in range(len(self.particles)):
-            self.particles[particle].draw()
+        for particle in self.particles:
+            particle.draw()
