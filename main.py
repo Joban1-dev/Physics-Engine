@@ -9,7 +9,7 @@ screen = pg.display.set_mode((WIDTH,HEIGHT))
 clock = pg.Clock()
 environment = PhysicsWorld(screen)
 frame_rate = 60
-environment.add_object(100)
+environment.add_object(10)
 
 while True:
     for event in pg.event.get():
